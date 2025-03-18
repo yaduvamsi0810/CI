@@ -1,0 +1,21 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Deployment Script
+        run: |
+          echo "Deploying on EC2..."
+          # Example: Restart an application or update code
+          cd /home/ubuntu/your-app
+          git pull origin main
+          ./deploy.sh
